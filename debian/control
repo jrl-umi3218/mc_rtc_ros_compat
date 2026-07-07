@@ -25,4 +25,3 @@ Architecture: any
 Depends: libmc-rtc-ros-compat (= ${binary:Version}), ${misc:Depends}
 Description: Development files for mc-rtc ROS compatibility
  This package contains the development files (headers, cmake, etc.) for mc-rtc ROS compatibility.
-

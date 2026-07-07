@@ -10,6 +10,9 @@ on:
       - devel
       - master
       - main
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   nix:
     runs-on: "${{ matrix.os }}-latest"
@@ -17,16 +20,33 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu]
+        build: [ mc-rtc-ros-compat ]
+        ros: [true, false]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: cachix/install-nix-action@v31
       - uses: cachix/cachix-action@v17
         with:
           name: mc-rtc-nix
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: "ros,gepetto"
+      - &configure-variants
+        name: "Determine Variant Arguments"
+        id: flags
+        run: |
+          ARGS=""
+
+          # Handle ros trigger (ros-free is the inverse of with-ros)
+          if [ "${{ matrix.ros }}" = "true" ]; then
+            ARGS="$ARGS --override-input with-ros-trigger github:boolean-option/true"
+          else
+            ARGS="$ARGS --override-input with-ros-trigger github:boolean-option/false"
+          fi
+
+          # Trim leading space and export
+          echo "args=$(echo "$ARGS" | xargs)" >> "$GITHUB_OUTPUT"
       - run: nix flake check -L
-      - run: nix build -L
+      - run: nix build -L ${{ steps.flags.outputs.args }} ".#${{ matrix.build }}"
   check:
     if: always()
     name: check-macos-linux-nix
