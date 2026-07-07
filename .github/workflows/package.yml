@@ -1,5 +1,5 @@
 ---
-name: Package mc_rtc
+name: Package mc_rtc_ros_compat
 on:
   repository_dispatch:
     types:
