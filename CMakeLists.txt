@@ -6,9 +6,10 @@ cmake_minimum_required(VERSION 3.22)
 
 find_package(jrl-cmakemodules 2.1.0 CONFIG QUIET)
 
+set(PROJECT_VERSION 1.0.0)
 project(
     mc_rtc_ros_compat
-    VERSION 1.0.0
+    VERSION ${PROJECT_VERSION}
     DESCRIPTION "Small library to keep mc_rtc ros agnostic"
     HOMEPAGE_URL "https://github.com/jrl-umi3218/mc_rtc_ros_compat"
     LANGUAGES CXX
