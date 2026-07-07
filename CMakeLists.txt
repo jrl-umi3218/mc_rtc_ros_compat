@@ -86,7 +86,6 @@ if(BUILD_TESTING)
         test_path
         PUBLIC mc_rtc_ros_compat Catch2::Catch2WithMain
     )
-    jrl_add_export_component(NAME mc_rtc_ros_compat_test TARGETS test_path)
     add_test(NAME test_path COMMAND test_path)
     # Set LD_LIBRARY_PATH for the test (for Nix)
     set_tests_properties(
