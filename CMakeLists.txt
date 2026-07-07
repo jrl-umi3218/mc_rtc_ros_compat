@@ -47,8 +47,8 @@ if(BUILD_TESTING)
 endif()
 
 if(NOT DISABLE_ROS)
-    jrl_find_package(rclcpp REQUIRED)
-    jrl_find_package(ament_index_cpp REQUIRED)
+    jrl_find_package(rclcpp QUIET)
+    jrl_find_package(ament_index_cpp QUIET)
 endif()
 
 add_library(mc_rtc_ros_compat SHARED src/path.cpp)

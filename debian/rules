@@ -14,10 +14,10 @@ TMP = $(CURDIR)/debian/tmp
 	dh $@ --no-parallel
 
 override_dh_auto_configure-libmc-rtc-ros-compat:
-	dh_auto_configure -- -DDISABLE_ROS=ON -DPYTHON_DEB_ROOT=$(TMP) -DFETCHCONTENT_FULLY_DISCONNECTED=ON
+	dh_auto_configure -- -DDISABLE_ROS=ON -DPYTHON_DEB_ROOT=$(TMP) -DFETCHCONTENT_FULLY_DISCONNECTED=ON -DDISABLE_ROS=ON
 
 override_dh_auto_configure-libmc-rtc-ros-compat-dev:
-	dh_auto_configure -- -DDISABLE_ROS=ON -DPYTHON_DEB_ROOT=$(TMP) -DFETCHCONTENT_FULLY_DISCONNECTED=ON
+	dh_auto_configure -- -DDISABLE_ROS=ON -DPYTHON_DEB_ROOT=$(TMP) -DFETCHCONTENT_FULLY_DISCONNECTED=ON -DDISABLE_ROS=ON
 
 override_dh_auto_configure-ros-@ROS_DISTRO@-mc-rtc-ros-compat:
 	dh_auto_configure -- -DPYTHON_DEB_ROOT=$(TMP) -DFETCHCONTENT_FULLY_DISCONNECTED
