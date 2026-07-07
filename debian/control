@@ -1,0 +1,28 @@
+Source: mc-rtc-ros-compat
+Priority: optional
+Maintainer: Arnaud Tanguy <arn.tanguy+ppa@gmail.com>
+Standards-Version: 3.9.5
+Section: libs
+Homepage: https://github.com/jrl-umi3218/mc_rtc_ros_compat
+Vcs-Git: https://github.com/jrl-umi3218/mc_rtc_ros_compat
+Vcs-Browser: https://github.com/jrl-umi3218/mc_rtc_ros_compat
+Build-Depends: debhelper (>= 9),
+               cmake,
+               doxygen,
+               graphviz,
+               libltdl-dev
+
+Package: libmc-rtc-ros-compat
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Shared library for mc-rtc ROS compatibility
+ This package contains the shared library for mc-rtc ROS compatibility.
+
+Package: libmc-rtc-ros-compat-dev
+Section: libdevel
+Architecture: any
+Depends: libmc-rtc-ros-compat (= ${binary:Version}), ${misc:Depends}
+Description: Development files for mc-rtc ROS compatibility
+ This package contains the development files (headers, cmake, etc.) for mc-rtc ROS compatibility.
+

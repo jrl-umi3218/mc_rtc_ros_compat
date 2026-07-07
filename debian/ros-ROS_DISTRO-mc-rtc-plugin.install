@@ -1,0 +1,3 @@
+usr/lib/*/libmc_rtc_ros_compat.so
+usr/lib/cmake/mc_rtc_ros_compat/*
+usr/include/mc_rtc_ros_compat/*
