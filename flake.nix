@@ -17,42 +17,42 @@
         };
 
         packages = {
-                mc-rtc-ros-compat =
-                  {
-                    stdenv,
-                    lib,
-                    cmake,
-                    jrl-cmakemodules,
-                    with-ros ? true,
-                    rclcpp
-                  }:
+          mc-rtc-ros-compat =
+            {
+              stdenv,
+              lib,
+              cmake,
+              jrl-cmakemodules,
+              with-ros ? true,
+              rclcpp,
+            }:
 
-                  stdenv.mkDerivation {
-                    pname = "mc-rtc-ros-compat";
-                    version = "1.0.0";
+            stdenv.mkDerivation {
+              pname = "mc-rtc-ros-compat";
+              version = "1.0.0";
 
-                    src = lib.cleanSource ./.;
+              src = lib.cleanSource ./.;
 
-                    buildInputs = [
-                      jrl-cmakemodules
-                    ];
-                    nativeBuildInputs = [
-                      cmake
-                    ];
-                    propagatedBuildInputs = lib.optional with-ros rclcpp;
+              buildInputs = [
+                jrl-cmakemodules
+              ];
+              nativeBuildInputs = [
+                cmake
+              ];
+              propagatedBuildInputs = lib.optional with-ros rclcpp;
 
-                    cmakeFlags = [
-                    ];
+              cmakeFlags = [
+              ];
 
-                    doCheck = true;
+              doCheck = true;
 
-                    meta = with lib; {
-                      description = "mc-rtc-ros-compat: small library to keep mc-rtc ros-agnostic";
-                      homepage = "https://github.com/jrl-umi3218/mc_rtc_ros_compat";
-                      license = licenses.bsd2;
-                      platforms = platforms.all;
-                    };
-                  };
+              meta = with lib; {
+                description = "mc-rtc-ros-compat: small library to keep mc-rtc ros-agnostic";
+                homepage = "https://github.com/jrl-umi3218/mc_rtc_ros_compat";
+                license = licenses.bsd2;
+                platforms = platforms.all;
+              };
+            };
         };
       }
     );
