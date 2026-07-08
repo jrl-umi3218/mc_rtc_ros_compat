@@ -75,7 +75,10 @@ target_include_directories(
 jrl_target_generate_config_header( mc_rtc_ros_compat PUBLIC VERSION "${PROJECT_VERSION}")
 set_target_properties(
     mc_rtc_ros_compat
-    PROPERTIES COMPILE_FLAGS "-DMC_RTC_ROS_COMPAT_EXPORTS"
+    PROPERTIES
+        VERSION ${PROJECT_VERSION}
+        SOVERSION 1
+        COMPILE_FLAGS "-DMC_RTC_ROS_COMPAT_EXPORTS"
 )
 jrl_target_headers(mc_rtc_ros_compat PUBLIC HEADERS include/mc_rtc_ros_compat/path.h BASE_DIRS include)
 

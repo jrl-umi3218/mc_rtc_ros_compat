@@ -1,2 +1,2 @@
 usr/lib/cmake/mc_rtc_ros_compat/*
-usr/lib/*/libmc_rtc_ros_compat.so
+usr/lib/*/libmc_rtc_ros_compat.so.*
