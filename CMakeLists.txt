@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.22)
 
 find_package(jrl-cmakemodules 2.1.0 CONFIG QUIET)
 
-set(PROJECT_VERSION 1.0.0)
+set(PROJECT_VERSION 1.0.1)
 project(
     mc_rtc_ros_compat
     VERSION ${PROJECT_VERSION}
