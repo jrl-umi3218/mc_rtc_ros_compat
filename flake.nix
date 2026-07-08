@@ -73,6 +73,7 @@
 
                     cmakeFlags = [
                       (lib.cmakeBool "DISABLE_ROS" (!with-ros))
+                      (lib.cmakeBool "BUILD_TESTS_WITH_ROS_PACKAGES" (human-description != null))
                     ];
 
                     doCheck = true;

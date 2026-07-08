@@ -13,7 +13,8 @@ TEST_CASE("resolve_package_path handles non-package URIs",
   REQUIRE(path == std::filesystem::path("/some/regular/path.txt"));
 }
 
-#ifdef MC_RTC_ROS_COMPAT_HAS_ROS_SUPPORT
+#if defined(MC_RTC_ROS_COMPAT_HAS_ROS_SUPPORT) && \
+    defined(BUILD_TESTS_WITH_ROS_PACKAGES)
 TEST_CASE("resolve_package_path resolves package URIs",
           "[resolve_package_path]") {
   // Replace "your_package" and "some/file.txt" with actual values for your test

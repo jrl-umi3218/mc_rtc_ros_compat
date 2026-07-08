@@ -25,9 +25,10 @@ jrl_configure_defaults()
 # -------
 jrl_option(DISABLE_ROS "Build without ROS." OFF)
 # Unit tests
+jrl_option(BUILD_TESTING "Build unit tests." ON)
 # NOTE: some tests depend on human_description external package for package:// test with ament_index_cpp
 #       these are only tested in Nix for now
-jrl_option(BUILD_TESTING "Build unit tests." ON)
+jrl_option(BUILD_TESTS_WITH_ROS_PACKAGES "Build tests that depend human_description" OFF)
 jrl_print_options_summary()
 
 # ------------
