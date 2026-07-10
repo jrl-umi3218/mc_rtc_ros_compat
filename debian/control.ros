@@ -2,10 +2,11 @@
 Package: ros-@ROS_DISTRO@-mc-rtc-ros-compat
 Section: libs
 Architecture: any
-Depends: ros-@ROS_DISTRO@-rclcpp,
-         ${misc:Depends}
+Depends: ros-@ROS_DISTRO@-rclcpp, ros-@ROS_DISTRO@-ament-package, ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libmc-rtc-ros-compat, libmc-rtc-ros-compat-dev
 Replaces: libmc-rtc-ros-compat, libmc-rtc-ros-compat-dev
-Breaks: libmc-rtc-ros-compat, libmc-rtc-ros-compat-dev
 Provides: libmc-rtc-ros-compat, libmc-rtc-ros-compat-dev
 Description: ROS package for mc-rtc ROS compatibility
- This package provides the ROS interface for mc-rtc ROS compatibility and replaces the standalone library and development packages.
+ This package provides the ROS interface for mc-rtc ROS
+ compatibility and replaces the standalone library and
+ development packages.
