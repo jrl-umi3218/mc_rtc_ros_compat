@@ -1,3 +1,9 @@
+mc-rtc-ros-compat (1.0.5-1ubuntu1) unstable; urgency=medium
+
+  * New release: version 1.0.5
+
+ -- Arnaud TANGUY <arn.tanguy@gmail.com>  Tue, 14 Jul 2026 19:30:49 +0200
+
 mc-rtc-ros-compat (1.0.4-1ubuntu1) unstable; urgency=medium
 
   * New release: version 1.0.4
