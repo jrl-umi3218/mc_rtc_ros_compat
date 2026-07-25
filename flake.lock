@@ -888,11 +888,11 @@
         "gepetto": "gepetto"
       },
       "locked": {
-        "lastModified": 1783244775,
-        "narHash": "sha256-+zA8cyh5o+5U1rbW/qCZbeO3t+uGcCieIVqMh2yNomg=",
+        "lastModified": 1783605492,
+        "narHash": "sha256-CJPPNoyLYZJkaC0X8yxxY+jw7fUpN67tWQ7mdZlMvNc=",
         "owner": "jrl-umi3218",
         "repo": "jrl-cmakemodules",
-        "rev": "648efca10ffc9081c633e5d23d8b069e89eee341",
+        "rev": "e33225ea9330bf7217a2e38852d8a38ae028085f",
         "type": "github"
       },
       "original": {
