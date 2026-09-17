@@ -1,3 +1,9 @@
+mc-rtc-ros-compat (1.0.6-1ubuntu1) unstable; urgency=medium
+
+  * New release: version 1.0.6
+
+ -- ThomasDuvinage <t.duvinage@outlook.fr>  Thu, 17 Sep 2026 22:54:27 +0900
+
 mc-rtc-ros-compat (1.0.5-1ubuntu1) unstable; urgency=medium
 
   * New release: version 1.0.5
