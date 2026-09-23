@@ -39,6 +39,7 @@ if(BUILD_TESTING)
     find_package(Catch2 3 QUIET)
     if(NOT Catch2_FOUND)
         include(FetchContent)
+        set(CATCH_BUILD_TESTING OFF CACHE BOOL "" FORCE)
         FetchContent_Declare(
             Catch2
             GIT_REPOSITORY https://github.com/catchorg/Catch2.git
