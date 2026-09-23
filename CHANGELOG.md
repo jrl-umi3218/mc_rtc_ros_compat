@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-09-23
+
 ## [1.0.6] - 2026-09-17
 
 ## [1.0.5] - 2026-07-14
@@ -23,5 +25,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 First release
 
 
-[Unreleased]: https://github.com/coal-library/coal/compare/v1.1.2...HEAD
+[Unreleased]: https://github.com/coal-library/coal/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/coal-library/coal/compare/v1.1.2...v1.1.0
 [1.0.0]: https://github.com/jrl-umi3218/jrl-cmakemodules/releases/tag/v1.0.0
