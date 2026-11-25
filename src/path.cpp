@@ -1,27 +1,27 @@
 #include <mc_rtc_ros_compat/path.h>
 #ifdef MC_RTC_ROS_COMPAT_HAS_ROS_SUPPORT
-  /**
-   * https://github.com/ament/ament_index/pull/104 changed the amend-index-cpp API to use std::filesystem
-   * This was backported to jazzy and kilted, but not humble used on ubuntu jammy
-   * Thus we need to keep support for both, which is done here by defining MC_RTC_ROS_COMPAT_HAS_GET_PACKAGE_SHARE_DIRECTORY
-   * This should be removed when dropping ubuntu jammy support
-   */
-  #if defined(MC_RTC_ROS_COMPAT_HAS_ROS_SUPPORT)
-  #  if defined(__has_include)
-  #    if __has_include(<ament_index_cpp/get_package_share_directory.hpp>)
-  #      include <ament_index_cpp/get_package_share_directory.hpp>
-  #      define MC_RTC_ROS_COMPAT_HAS_GET_PACKAGE_SHARE_DIRECTORY 1
-  #    elif __has_include(<ament_index_cpp/get_package_share_path.hpp>)
-  #      include <ament_index_cpp/get_package_share_path.hpp>
-  #      define MC_RTC_ROS_COMPAT_HAS_GET_PACKAGE_SHARE_DIRECTORY 0
-  #    endif
-  #  else
-  #    include <ament_index_cpp/get_package_share_directory.hpp>
-  #    define MC_RTC_ROS_COMPAT_HAS_GET_PACKAGE_SHARE_DIRECTORY 1
-  #  endif
+/**
+ * https://github.com/ament/ament_index/pull/104 changed the amend-index-cpp API
+ * to use std::filesystem This was backported to jazzy and kilted, but not
+ * humble used on ubuntu jammy Thus we need to keep support for both, which is
+ * done here by defining MC_RTC_ROS_COMPAT_HAS_GET_PACKAGE_SHARE_DIRECTORY This
+ * should be removed when dropping ubuntu jammy support
+ */
+#if defined(MC_RTC_ROS_COMPAT_HAS_ROS_SUPPORT)
+#if defined(__has_include)
+#if __has_include(<ament_index_cpp/get_package_share_directory.hpp>)
+#include <ament_index_cpp/get_package_share_directory.hpp>
+#define MC_RTC_ROS_COMPAT_HAS_GET_PACKAGE_SHARE_DIRECTORY 1
+#elif __has_include(<ament_index_cpp/get_package_share_path.hpp>)
+#include <ament_index_cpp/get_package_share_path.hpp>
+#define MC_RTC_ROS_COMPAT_HAS_GET_PACKAGE_SHARE_DIRECTORY 0
+#endif
+#else
+#include <ament_index_cpp/get_package_share_directory.hpp>
+#define MC_RTC_ROS_COMPAT_HAS_GET_PACKAGE_SHARE_DIRECTORY 1
 #endif
 #endif
-
+#endif
 
 #include <stdexcept>
 
@@ -40,13 +40,13 @@ std::pair<bool, std::filesystem::path> resolve_package_path(
     auto leaf = fs::path(uri.substr(split + 1));
 #ifdef MC_RTC_ROS_COMPAT_HAS_ROS_SUPPORT
     try {
-      #if MC_RTC_ROS_COMPAT_HAS_GET_PACKAGE_SHARE_DIRECTORY
-        auto pkg_path = ament_index_cpp::get_package_share_directory(pkg);
-        return {true, fs::path{pkg_path} / leaf};
-      #else
-        auto pkg_path = ament_index_cpp::get_package_share_path(pkg);
-        return {true, pkg_path / leaf};
-      #endif
+#if MC_RTC_ROS_COMPAT_HAS_GET_PACKAGE_SHARE_DIRECTORY
+      auto pkg_path = ament_index_cpp::get_package_share_directory(pkg);
+      return {true, fs::path{pkg_path} / leaf};
+#else
+      auto pkg_path = ament_index_cpp::get_package_share_path(pkg);
+      return {true, pkg_path / leaf};
+#endif
     } catch (const std::exception& e) {
       throw std::runtime_error(
           "[mc_rtc::resolve_package_path] Ament failed to resolve ROS package "
